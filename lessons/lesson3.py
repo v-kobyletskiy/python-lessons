@@ -41,9 +41,9 @@ print(f'{purchase_amount:.2f}')
 
 #Task 3
 month_number = int(input('Please enter month number>>>'))
-if (month_number in [1, 3, 5, 7, 8, 10, 12]):
+if month_number in (1, 3, 5, 7, 8, 10, 12):
     print(31)
-elif (month_number in [4, 6, 9, 11]):
+elif month_number in (4, 6, 9, 11):
     print(30)
 elif month_number == 2:
     year = int(input('Please enter year>>>'))
