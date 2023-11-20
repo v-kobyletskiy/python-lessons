@@ -14,18 +14,21 @@ x = int(input('Please enter digit>>>'))
 
 # Task 4
 x = int(input('Please enter digit>>>'))
-(x % 2 and print_bool('It is odd number')) or print_bool('It is even number')
+# (x % 2 and print_bool('It is odd number')) or print_bool('It is even number')
+res = x % 2 and 'Odd' or 'Even'
+print(res)
 
 #Task 5
 x, y, z = int(input('Please enter digit>>>')), int(input('Please enter digit>>>')), int(input('Please enter digit>>>'))
-x > y and x > z and print_bool('First digit is the greatest') or \
-y > x and y > z and print_bool('Second digit is the greatest') or \
-z > x and z > y and print_bool('Third digit is the greatest')
+# x > y and x > z and print_bool('First digit is the greatest') or \
+# y > x and y > z and print_bool('Second digit is the greatest') or \
+# z > x and z > y and print_bool('Third digit is the greatest')
+print(max(x, y, z))
 
 # Task 1
 answer = input('Do you have driver\'s license?')
-answer == 'yes' and print_bool('You can drive a car')
-answer == 'no' and print_bool('You can\'t drive a car')
+answer.lower() == 'yes' and print_bool('You can drive a car')
+answer.lower() == 'no' and print_bool('You can\'t drive a car')
 
 # Task 2
 age = int(input('What is your age?'))
