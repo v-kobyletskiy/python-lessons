@@ -48,5 +48,5 @@ print(longest_word)
 # ]
 # sum = 0
 # for i, item in enumerate(x):
-#     sum += float(item.split()[-2:-3:-1][0].replace('$', ''))
+#     sum += float(item.split()[-2].replace('$', ''))
 # print(sum)
