@@ -6,6 +6,7 @@ for word in words:
     if word not in res:
         res[word] = text.count(word)
 print(res)
+# or res = {word: text.count(word) for word in words}
 
 # Task 2
 translations = {
@@ -14,21 +15,23 @@ translations = {
     'cat': 'кіт',
     'dog': 'собака'
 }
-eng = input('Please enter english word>>>')
-if eng in translations:
-    print(translations[eng])
-else:
-    print('No translation')
+reverse_translation = {value: key for key, value in translations.items()}
+user_word = input('Please enter english word>>>').strip().lower()
+if user_word in translations:
+    print(translations[user_word])
+elif user_word in reverse_translation:
+    print(reverse_translation.get(user_word, 'No translation'))
+
 
 # Task 3
 phones = {}
-while True:
-    user_selection = int(input('''Please enter your choice>>>
+while user_selection := int(input('''Please enter your choice>>>
 1 - add contact
 2 - remove contact
 3 - get phone by name
 4 - exit
-'''))
+''')) != 4:
+
     if user_selection == 1:
         name, phone = input('Name>>>'), input('Number')
         phones[name] = phone
@@ -40,8 +43,6 @@ while True:
     elif user_selection == 3:
         name = input('Please enter name to get phone>>>')
         print(phones[name]) if name in phones else print('No such contact')
-    else:
-        break
 
 # Task 4
 exchange_rate = {
