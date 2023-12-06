@@ -43,13 +43,13 @@ def is_palindrome(digit: int) -> bool:
     return str(digit) == str(digit)[::-1]
 
 palindrome_multipliers = ()
-palindrome = 0
+max_palindrome = 0
 for i in range(100, 1000):
     for j in range(100, 1000):
-        if is_palindrome(i * j):
+        if is_palindrome(i * j) and i * j > max_palindrome:
             palindrome_multipliers = (i, j)
-            palindrome = i * j
-print(f'Palindrome: {palindrome} is result of multipliers {palindrome_multipliers}')
+            max_palindrome = i * j
+print(f'Palindrome: {max_palindrome} is result of multipliers {palindrome_multipliers}')
 
 # def calc(*args, **kwargs):
 #     for item in args:
