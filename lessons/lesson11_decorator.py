@@ -62,6 +62,7 @@ def limit_calls(max_calls):
             nonlocal calls_counter
             if calls_counter >= max_calls:
                 print(f'Exceeds call function \'{func.__name__}\' limit')
+                return None
             else:
                 calls_counter += 1
                 return func(*args, **kwargs)
