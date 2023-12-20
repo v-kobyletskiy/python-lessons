@@ -61,7 +61,7 @@ def limit_calls(max_calls):
         def wrapper(*args, **kwargs):
             nonlocal calls_counter
             if calls_counter >= max_calls:
-                print(f'Exceeds call function \'{func.__name__}\' limit')
+                # print(f'Exceeds call function \'{func.__name__}\' limit')
                 return None
             else:
                 calls_counter += 1
@@ -96,3 +96,25 @@ def fibonacci(number):
 
 print(fibonacci(5))
 print(fibonacci(5))
+
+# Closure
+def outer_function(x):
+    # Локальна змінна у зовнішній функції
+    outer_variable = x
+
+    # Внутрішня функція (замикання)
+    def inner_function(y):
+        # Має доступ до локальної змінної зовнішньої функції
+        result = outer_variable + y
+        return result
+
+    # Повертає внутрішню функцію (замикання)
+    return inner_function
+
+# Створення замикання
+closure_instance = outer_function(10)
+
+# Виклик замикання
+result_value = closure_instance(5)
+
+print(result_value)  # Виведе: 15
