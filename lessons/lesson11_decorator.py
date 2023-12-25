@@ -1,7 +1,11 @@
 # Task 1
+import functools
+
+
 def transform_digits(digits, transformer):
-    transformed_digits = map(transformer, digits)
-    return sum(transformed_digits)
+    # transformed_digits = map(transformer, digits)
+    # return sum(transformed_digits)
+    return sum([transformer(item) for item in digits])
 
 
 digits_to_transform = [1, 2, 3]
@@ -18,16 +22,19 @@ def read_cache(file_path):
 def save_cache(file_path, cache):
     with open(file_path, 'w', encoding='utf-8') as file:
         file.writelines(map(lambda item: f'{item[0]} {item[1]}\n', cache.items()))
-def factorial_decorator(func):
-    cache = read_cache('./data/lesson11_1.txt')
-    def wrapper(*args, **kwargs):
-        cache_key = str(args + tuple(kwargs.items()))
-        if cache_key not in cache:
-            cache[cache_key] = func(*args, **kwargs)
-            save_cache('./data/lesson11_1.txt', cache)
-        return cache[cache_key]
-    return wrapper
-@factorial_decorator
+def save_to_file(filepath):
+    def decorator(func):
+        cache = read_cache(filepath)
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            cache_key = str(args + tuple(kwargs.items()))
+            if cache_key not in cache:
+                cache[cache_key] = func(*args, **kwargs)
+                save_cache(filepath, cache)
+            return cache[cache_key]
+        return wrapper
+    return decorator
+@save_to_file('./data/lesson11_1.txt')
 def count_fibonacci(number):
     if number < 2:
         return 1
@@ -55,14 +62,13 @@ def test_function():
 test_function()
 
 # Task 4
-def limit_calls(max_calls):
+def limit_calls(max_calls=3):
     def decorator(func):
         calls_counter = 0
         def wrapper(*args, **kwargs):
             nonlocal calls_counter
             if calls_counter >= max_calls:
-                # print(f'Exceeds call function \'{func.__name__}\' limit')
-                return None
+                raise ValueError('Function call limit exceeded')
             else:
                 calls_counter += 1
                 return func(*args, **kwargs)
@@ -80,7 +86,12 @@ limit_calls_function()
 # Task 5
 def cache_result(func):
     def wrapper(*args, **kwargs):
-        cache_key = args
+        for key, value in kwargs.items():
+            try:
+                hash(value)
+            except TypeError:
+                raise TypeError('Keyword argument is not hashable')
+        cache_key = args + tuple(kwargs.items())
         if cache_key not in wrapper.cache:
             wrapper.cache[cache_key] = func(*args, **kwargs)
         return wrapper.cache[cache_key]
