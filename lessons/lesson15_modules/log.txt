@@ -1,0 +1,1 @@
+2023-12-31 14:20:41,780 - __main__ - WARNING - Product Bread - 10 not in cart

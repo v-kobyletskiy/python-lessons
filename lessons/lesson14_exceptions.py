@@ -5,6 +5,7 @@ class InvalidPriceException(Exception):
     def __init__(self, price, message):
         self.price = price
         self.message = message
+        super().__init__(message)
 
 
 class Product:
@@ -133,6 +134,7 @@ class DiscountException(Exception):
     def __init__(self, discount, message):
         self.discount = discount
         self.message = message
+        super().__init__(message)
     def __str__(self):
         return f'{str(self.discount)}\n{self.message}'
 
