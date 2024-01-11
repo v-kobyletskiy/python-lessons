@@ -1,7 +1,13 @@
 from fractions import Fraction
 
 class ProperFraction():
-    def __init__(self, numerator, denominator):
+    def __init__(self, numerator: int, denominator: int):
+        if not isinstance(numerator, int):
+            raise TypeError('Numerator must be int')
+        if not isinstance(denominator, int):
+            raise TypeError('Denominator must be int')
+        if denominator == 0:
+            raise ValueError('Denominator can\'t be zero')
         self.numerator = numerator
         self.denominator = denominator
 
@@ -32,10 +38,18 @@ class ProperFraction():
         return self.value() <= other.value()
 
     def __add__(self, other):
-        fraction1 = Fraction(self.numerator, self.denominator)
-        fraction2 = Fraction(other.numerator, other.denominator)
-        res = fraction1 + fraction2
-        return ProperFraction(res.numerator, res.denominator)
+        if isinstance(other, ProperFraction):
+            fraction1 = Fraction(self.numerator, self.denominator)
+            fraction2 = Fraction(other.numerator, other.denominator)
+            res = fraction1 + fraction2
+            return ProperFraction(res.numerator, res.denominator)
+
+        if isinstance(other, int):
+            numerator = self.numerator + other * self.denominator
+            return ProperFraction(numerator, self.denominator)
+
+        raise TypeError('not valid type (s) sent to add'.format(type(other).__name__))
+
 
     def __sub__(self, other):
         fraction1 = Fraction(self.numerator, self.denominator)
