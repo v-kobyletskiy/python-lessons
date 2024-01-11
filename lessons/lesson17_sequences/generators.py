@@ -64,3 +64,16 @@ print(next(fibonachi_generator))
 print(next(fibonachi_generator))
 print(next(fibonachi_generator))
 print(next(fibonachi_generator))
+
+# Task 8
+from datetime import datetime, timedelta
+
+def generate_date(start, end):
+    current_date = start
+    while current_date < end:
+        current_date += timedelta(days=1)
+        yield current_date
+
+date_generator = generate_date(datetime(2024, 1, 1), datetime(2024, 1, 3))
+print(next(date_generator))
+print(next(date_generator))
