@@ -26,7 +26,8 @@ class Menu:
         return iter(self.__categories)
     #Sequence interface
     def __getitem__(self, item):
-        return self.__categories[item]
+        if isinstance(item, int):
+            return self.__categories[item]
     def __len__(self):
         return len(self.__categories)
 

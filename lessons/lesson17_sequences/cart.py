@@ -63,8 +63,8 @@ ivan_shoppings.add_shopping(potato, 1)
 ivan_shoppings.add_shopping(sidr, 2)
 ivan_shoppings.add_shopping(orange, 3)
 
-for shopping in ivan_shoppings:
-    print(f'{shopping[0]} : {shopping[1]}')
+for product, amount in ivan_shoppings:
+    print(f'{product} - {amount}')
 
-print(f'{ivan_shoppings}')
+# print(f'{ivan_shoppings}')
 # print(f'Ivan\'s sum of shoppings is: ${ivan_shoppings.cost_shoppings()}')
