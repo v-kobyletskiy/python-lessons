@@ -45,6 +45,13 @@ print(next(simple_numbers_gen))
 print(next(simple_numbers_gen))
 print(next(simple_numbers_gen))
 
+# Task 6
+cube_list = []
+cube_generator = (i**3 for i in range(2, 5))
+for digit_cube in cube_generator:
+    cube_list.append(digit_cube)
+print(cube_list)
+
 # Task 7
 
 def gen_fibonachi():
