@@ -5,12 +5,18 @@ def generate_geometrical(start, multiplier):
         yield current_item
         current_item *= multiplier
 
-geometry_generator = generate_geometrical(1, 2)
-print(next(geometry_generator))
-print(next(geometry_generator))
-print(next(geometry_generator))
+for item in generate_geometrical(1,3):
+    print(item)
+    if item > 8:
+        break
+# geometry_generator = generate_geometrical(1, 2)
+# print(next(geometry_generator))
+# print(next(geometry_generator))
+# print(next(geometry_generator))
 
 # Task 4
+# if not all([isinstance(item, int) for item in args])
+#     raise TypeError()
 def range_test(finish):
     index = 0
     while index < finish:
@@ -21,36 +27,48 @@ for i in range_test(5):
     print(i)
 
 # Task 5
+def prime_numbers(stop):
+    for i in range(stop):
+        for j in range(2, i):
+            if i % j == 0:
+                break
+        else:
+            yield i
 
-def gen_simple_numbers(top_bound):
-    index = 1
-    while index < top_bound:
-        if is_simple(index):
-            yield index
-        index += 1
+for number in prime_numbers(10):
+    print(number)
 
-def is_simple(number):
-    index = 2
-    while index < number:
-        if number % index == 0:
-            break
-        index += 1
-    else:
-        return True
-    return False
-
-simple_numbers_gen = gen_simple_numbers(5)
-print(next(simple_numbers_gen))
-print(next(simple_numbers_gen))
-print(next(simple_numbers_gen))
-print(next(simple_numbers_gen))
+# def gen_simple_numbers(top_bound):
+#     index = 1
+#     while index < top_bound:
+#         if is_simple(index):
+#             yield index
+#         index += 1
+#
+# def is_simple(number):
+#     index = 2
+#     while index < number:
+#         if number % index == 0:
+#             break
+#         index += 1
+#     else:
+#         return True
+#     return False
+#
+# simple_numbers_gen = gen_simple_numbers(5)
+# print(next(simple_numbers_gen))
+# print(next(simple_numbers_gen))
+# print(next(simple_numbers_gen))
+# print(next(simple_numbers_gen))
 
 # Task 6
-cube_list = []
+# cube_list = []
+# cube_generator = (i**3 for i in range(2, 5))
+# for digit_cube in cube_generator:
+#     cube_list.append(digit_cube)
+# print(cube_list)
 cube_generator = (i**3 for i in range(2, 5))
-for digit_cube in cube_generator:
-    cube_list.append(digit_cube)
-print(cube_list)
+print(list(cube_generator))
 
 # Task 7
 

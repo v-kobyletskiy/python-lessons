@@ -13,7 +13,7 @@ class BankAccount:
         object.__setattr__(self, key, value)
 
     def __getattr__(self, item):
-        return f'property \'{item}\' doesn\'t exists'
+        raise AttributeError(f'property \'{item}\' doesn\'t exists')
 
 
 bank_account = BankAccount(17)
@@ -36,7 +36,7 @@ class User:
         return self.__last_name
 
     def __setattr__(self, key, value):
-        if key in ['first_name', 'last_name']:
+        if key in ('first_name', 'last_name'):
             raise AttributeError('You cant set \'first_name\' or \'last_name\' directly')
         object.__setattr__(self, key, value)
 
