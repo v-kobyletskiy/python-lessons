@@ -1,11 +1,14 @@
 # Task 1
 import math
-class Shape:
+from abc import ABC, abstractmethod
+class Shape(ABC):
+    @abstractmethod
     def square(self):
-        return NotImplementedError
+        pass
 
+    @abstractmethod
     def perimeter(self):
-        return NotImplementedError
+        pass
 
 class Circle(Shape):
     def __init__(self, radius):
@@ -40,14 +43,18 @@ class Triangle(Shape):
     def perimeter(self):
         return self.__a_side + self.__b_side + self.__c_side
 
+def get_figure_features(shape: Shape):
+    return shape.perimeter(), shape.square()
 
 if __name__ == '__main__':
     circle = Circle(2)
     rectangle = Rectangle(2, 4)
     triangle = Triangle(1, 2, 3)
-    print(f'Circle square: {circle.square():.2f} perimeter {circle.perimeter():.2f}')
-    print(f'Rectangle square: {rectangle.square():.2f} perimeter {rectangle.perimeter():.2f}')
-    print(f'Triangle square: {triangle.square():.2f} perimeter {triangle.perimeter():.2f}')
+    for shape in [circle, rectangle, triangle]:
+        print(get_figure_features(shape))
+    # print(f'Circle square: {circle.square():.2f} perimeter {circle.perimeter():.2f}')
+    # print(f'Rectangle square: {rectangle.square():.2f} perimeter {rectangle.perimeter():.2f}')
+    # print(f'Triangle square: {triangle.square():.2f} perimeter {triangle.perimeter():.2f}')
 
 # Task 2
 class PaymentMeans:
