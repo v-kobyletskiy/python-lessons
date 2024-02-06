@@ -1,0 +1,102 @@
+{% extends 'layouts/home.html' %}
+
+{% block contacts %}
+<div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>{{ contacts.address }}</p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservations</h4>
+            <p>
+              <strong>Phone:</strong> {{ contacts.phone_number }}<br>
+              <strong>Email:</strong> {{ contacts.email }}<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat: {{ contacts.working_hours }}</strong><br>
+              Sunday: {{ contacts.sunday_working_hours }}
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+{% endblock %}
+
+{% block events %}
+    {% for event in events %}
+        <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ event.photo.url }})">
+          <h3>{{ event.name }}</h3>
+          <div class="price align-self-start">${{ event.price }}</div>
+          <p class="description">{{ event.description }}</p>
+        </div><!-- End Event item -->
+    {% endfor %}
+
+{% endblock %}
+
+{% block gallery %}
+    {% for item in gallery %}
+        <div class="swiper-slide">
+            <a class="glightbox" data-gallery="images-gallery" href="{{ item.photo.url }}">
+                <img src="{{ item.photo.url }}" class="img-fluid" alt="{{ item.name }}">
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block chefs %}
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Chefs</h2>
+          <p>Our <span>Proffesional</span> Chefs</p>
+        </div>
+
+        <div class="row gy-4">
+            {% for chef in chefs %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="chef-member">
+              <div class="member-img">
+                <img src="{{ chef.photo.url }}" class="img-fluid" alt="{{ chef.surname }}">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{ chef }}</h4>
+                <span>{{ chef.appointment }}</span>
+                <p>{{ chef.description }}</p>
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+
+            {% endfor %}
+        </div>
+
+      </div>
+{% endblock %}
