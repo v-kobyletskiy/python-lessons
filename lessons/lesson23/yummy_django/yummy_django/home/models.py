@@ -24,3 +24,27 @@ class Contacts(models.Model):
     phone_number = models.CharField(max_length=20)
     working_hours = models.CharField(max_length=30)
     sunday_working_hours = models.CharField(max_length=30)
+
+class MenuCategory(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50, unique=True, db_index=True)
+    position = models.PositiveSmallIntegerField(default=1)
+    is_visible = models.BooleanField(default=True)
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.name
+
+class MenuDish(models.Model):
+    name = models.CharField(max_length=60, unique=True)
+    slug = models.SlugField(max_length=60, unique=True, db_index=True)
+    category = models.ForeignKey(MenuCategory, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    description = models.TextField()
+    ingredients = models.TextField()
+    is_visible = models.BooleanField(default=True)
+    photo = models.ImageField(upload_to='dishes', blank=True)
+    position = models.PositiveSmallIntegerField(default=1)
+
+    def __str__(self):
+        return self.name

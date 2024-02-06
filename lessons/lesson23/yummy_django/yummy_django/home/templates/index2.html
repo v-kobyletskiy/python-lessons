@@ -1,5 +1,42 @@
 {% extends 'layouts/home.html' %}
 
+{% block menu %}
+    <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        {% for category in menu_categories %}
+          <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-{{ category.slug }}">
+              <h4>{{ category.name }}</h4>
+            </a>
+          </li><!-- End tab nav item -->
+        {% endfor %}
+    </ul>
+
+    <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+        {% for category in menu_categories %}
+            <div class="tab-pane fade active show" id="menu-{{ category.slug }}">
+              <div class="tab-header text-center">
+                  <p>Menu</p>
+                  <h3>{{ category.name }}</h3>
+                  <div class="row gy-5">
+
+                      {% for dish in menu_dishes %}
+                          {% if dish.category.id == category.id %}
+                              <div class="col-lg-4 menu-item">
+                                <a href="{{ dish.photo.url }}" class="glightbox"><img src="{{ dish.photo.url }}" class="menu-img img-fluid" alt=""></a>
+                                <h4>{{ dish.name }}</h4>
+                                <p class="ingredients">{{ dish.ingredients }}</p>
+                                <p class="price">${{ dish.price }}</p>
+                              </div><!-- Menu Item -->
+                          {% endif %}
+                      {% endfor %}
+
+                  </div>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
 {% block contacts %}
 <div class="row gy-3">
         <div class="col-lg-3 col-md-6 d-flex">
