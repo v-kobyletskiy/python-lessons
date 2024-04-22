@@ -50,3 +50,77 @@ print(longest_word)
 # for i, item in enumerate(x):
 #     sum += float(item.split()[-2].replace('$', ''))
 # print(sum)
+
+
+# # Task 1
+# text = input('text=').lower()
+# print(text.count('b'))
+#
+# # Task 2
+# name = input('name>>>')
+# if len(name) >= 2 and name.replace(' ', '').isalpha() and name.istitle():
+#     print('Valid')
+# else:
+#     print('Error')
+#
+# # Task 3
+# text = input('text=')
+# res = sum(map(ord, text))
+# print(res)
+#
+# # Task 4
+# import math
+#
+# for i in range(2, 12):
+#     print(f'{math.pi:.{i}f}')
+#
+# # Task 5
+# text = input('text=').split()
+# print(max(text, key=len))
+#
+# # Task 6
+# text = input('text=')
+# for i in range(1, len(text) + 1):
+#     pattern = text[:i]
+#     if len(pattern) * text.count(pattern) == len(text):
+#         print(pattern)
+#         break
+#
+# # Task 7
+# html = """
+# <ul class="menu" role="tree">
+#
+#     <li class="python-meta current_item selectedcurrent_branch selected">
+#         <a href="/" title="The Python Programming Language" class="current_item selectedcurrent_branch selected">Python</a>
+#     </li>
+#
+#     <li class="psf-meta ">
+#         <a href="https://www.python.org/psf/" title="The Python Software Foundation" >PSF</a>
+#     </li>
+#
+#     <li class="docs-meta ">
+#         <a href="https://docs.python.org" title="Python Documentation" >Docs</a>
+#     </li>
+#
+#     <li class="pypi-meta ">
+#         <a href="https://pypi.org/" title="Python Package Index" >PyPI</a>
+#     </li>
+#
+#     <li class="jobs-meta ">
+#         <a href="/jobs/" title="Python Job Board" >Jobs</a>
+#     </li>
+#
+#     <li class="shop-meta ">
+#         <a href="/community-landing/"  >Community</a>
+#     </li>
+#
+# </ul>
+#
+# """
+#
+# while '<' in html:
+#     l_index = html.find('<')
+#     r_index = html.find('>')
+#     html = html.replace(html[l_index: r_index + 1], '')
+#
+# print(html)

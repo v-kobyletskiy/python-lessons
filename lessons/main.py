@@ -13,27 +13,26 @@ print(f'max value: {max(firstDigit, secondDigit, thirdDigit, fourthDigit, fifthD
 print(f'average: {(firstDigit + secondDigit + thirdDigit + fourthDigit + fifthDigit)/5}')
 
 #Third task
-x = int(input('Enter first operand'))
-y = int(input('Enter second operand'))
+x, y = int(input('Enter first operand')), int(input('Enter second operand'))
 print(f'x + y: {x + y}')
 print(f'x - y: {x - y}')
 print(f'x * y: {x * y}')
-print(f'x / y: {x / y}')
+print(f'x / y: {x / y:.2f}')
 print(f'x // y: {x // y}')
 
 #Fourth task
-PI = 3.1415
+from math import pi
 circleRadius = int(input('Enter circle radius'))
-print(f'Diametr: {circleRadius * 2}')
-print(f'Circle length: {2 * PI * circleRadius}')
-print('Circle square', PI * (circleRadius ** 2))
+print(f'Diameter: {circleRadius * 2:.2f}')
+print(f'Circle length: {2 * pi * circleRadius:.2f}')
+print('Circle square', pi * (circleRadius ** 2))
 
 #Fifth task
 startAmount = 1000
 percentIncome = 0.1
-print(f'Amount of money in 10 years: {startAmount * (1 + percentIncome) ** 10}')
+print(f'Amount of money in 10 years: {startAmount * (1 + percentIncome) ** 10:.2f}')
 print(f'Amount of money in 20 years: {startAmount * (1 + percentIncome) ** 20}')
-print(f'Amount of money in 30 years: {startAmount * (1 + percentIncome) ** 30}')
+print(f'Amount of money in 30 years: {startAmount * (1 + percentIncome) ** 30:.3f}')
 
 #Sixth task
 dollarExchangeRate = 37.7

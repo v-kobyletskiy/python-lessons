@@ -195,3 +195,131 @@ for i in range(width):
 #
 # for item_x, item_y in zip(x, y):
 #     print(f'{item_x}-{item}')
+
+
+# # Task 1
+# ticket = input('ticket=')
+# ticket = list(map(int, ticket))
+# if len(ticket) % 2:
+#     print('Error')
+# else:
+#     mid = len(ticket) // 2
+#     res = 'Lucky' if sum(ticket[:mid]) == sum(ticket[mid:]) else 'Not Lucky'
+#     print(res)
+
+# # Task 2
+# text = input('text=')
+# res = 'Yes' if text == text[::-1] else 'No'
+# print(res)
+
+# # Task 3
+# r = int(input('R='))
+# x, y = int(input('x=')), int(input('y='))
+# d = (x * x + y * y) ** 0.5
+# if d < r:
+#     print('In')
+# elif d > r:
+#     print('Out')
+# else:
+#     print('On')
+
+
+# Task 4
+# i = 0
+# while i < 100:
+#     print(i)
+#     i += 7
+#
+# for i in range(0, 100, 7):
+#     print(i)
+#
+# print(*range(0, 100, 7), sep='\n')
+#
+# # Task 5
+# print(sum(range(1, 100, 2)), len(range(1, 100, 2))
+# s = 0
+# count = 0
+# for i in range(1, 100, 2):
+#     s += i
+#     count += 1
+# print(s, count)
+#
+# # Task 6
+# for i in range(1, 201):
+#     print(i, end=' ')
+#     if i % 5 == 0:
+#         print()
+#
+# # Task 7
+# n = int(input('n='))
+# if n < 0:
+#     print('Error')
+# else:
+#     p = 1
+#     for i in range(2, n + 1):
+#         p *= i
+#     print(p)
+#
+# # Task 8
+# for i in range(1, 11):
+#     print(f'5 x {i} = {5 * i}')
+#
+# # Task 9
+# n, m = int(input('n=')), int(input('m='))
+# res = f"{'*' * n}\n" + f"*{' ' * (n - 2)}*\n" * (m - 2) + f"{'*' * n}\n"
+# print(res)
+#
+# # Task 10
+# x = [112, 345, 5677, 77]
+# s = 0
+# for item in map(str, x):
+#     s += sum(1 for digit in item if int(digit) % 2)
+# print(s)
+#
+# # Task 11
+# x = [1, 2, 3, 4]
+# y = x[:] + [item * 2 for item in x]
+# print(y)
+#
+# # Task 12
+# import random
+# salary = [random.randint(1, 10) for _ in range(12)]
+# print(f'AVG: {sum(salary) / len(salary):.2f}')
+#
+# # Task 13
+# x =[
+#     [1, 2, 3, 4],
+#     [5, 6, 7, 8],
+#     [9, 12, 13, 14],
+#     [11, 12, 13, 14],
+# ]
+#
+# s = 0
+# for row in x:
+#     s += sum(row)
+#     print(*row, sep='\t')
+# print(f'Summa={s}')
+#
+# # Task 14
+# x = [1, 2, 3, 4]
+# print(x[::-1])
+#
+# # Task 15
+# for n in range(2, 100):
+#     for i in range(2, n):
+#         if n % i == 0:
+#             break
+#     else:
+#         print(n)
+#
+# # Task 16
+# n = int(input('stars='))
+# spaces = 0
+# res = []
+# for stars in range(n, 0, -2):
+#     res.append(f"{' ' * spaces}{'*' * stars}")
+#     spaces += 1
+#
+# res += res[-2::-1]
+# print('\n'.join(res))
+
